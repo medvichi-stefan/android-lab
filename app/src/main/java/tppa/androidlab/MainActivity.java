@@ -1,11 +1,18 @@
 package tppa.androidlab;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +49,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.main_menu_login:
+                loginUser();
+                return true;
+            case R.id.main_menu_contact:
+                showContact();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         Log.i(LOGTAG, "onStart");
@@ -75,5 +97,37 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.i(LOGTAG, "onDestroy");
+    }
+
+    protected void loginUser() {
+        // create an alert builder
+        AlertDialog.Builder loginAlert = new AlertDialog.Builder(this);
+        loginAlert.setTitle("Login");
+        // set the custom layout
+        final View loginAlertLayout = getLayoutInflater().inflate(R.layout.login_alert, null);
+        loginAlert.setView(loginAlertLayout);
+        // add a button
+        loginAlert.setPositiveButton("Login", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // send data from the AlertDialog to the Activity
+                /*EditText editText = loginAlertLayout.findViewById(R.id.editText);
+                Toast.makeText(this, editText.getText().toString(), Toast.LENGTH_SHORT).show();*/
+            }
+        })
+        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+            }
+        });
+
+        // create and show the alert dialog
+        AlertDialog dialog = loginAlert.create();
+        dialog.show();
+    }
+
+    protected void showContact() {
+        Intent intent = new Intent(this, Contact.class);
+        startActivity(intent);
     }
 }

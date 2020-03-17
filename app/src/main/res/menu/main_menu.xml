@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menu1"
-        android:title="Meniu 1"/>
-    <item android:id="@+id/menu2"
-        android:title="Meniu 2" />
-    <item android:id="@+id/menu3"
-        android:title="Meniu 3" />
+    <item android:id="@+id/main_menu_login"
+        android:title="@string/main_menu_login"/>
+    <item android:id="@+id/main_menu_contact"
+        android:title="@string/main_menu_contact" />
 </menu>
