@@ -4,4 +4,8 @@
         android:title="@string/main_menu_login"/>
     <item android:id="@+id/main_menu_contact"
         android:title="@string/main_menu_contact" />
+    <item android:id="@+id/main_menu_settings"
+        android:title="@string/main_menu_settings" />
+    <item android:id="@+id/main_menu_save"
+        android:title="@string/main_menu_save" />
 </menu>

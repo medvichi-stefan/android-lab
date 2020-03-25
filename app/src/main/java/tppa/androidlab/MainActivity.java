@@ -6,13 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.main_menu_contact:
                 showContact();
+                return true;
+            case R.id.main_menu_settings:
+                showSettings();
+                return true;
+            case R.id.main_menu_save:
+                saveInternalStorage();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -129,5 +138,24 @@ public class MainActivity extends AppCompatActivity {
     protected void showContact() {
         Intent intent = new Intent(this, Contact.class);
         startActivity(intent);
+    }
+
+    protected void showSettings() {
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
+    }
+
+    protected void saveInternalStorage() {
+        String filename = "user_save";
+        String fileContents = "Saved string";
+        try {
+            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename);
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(fileContents.getBytes());
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+
+        }
     }
 }

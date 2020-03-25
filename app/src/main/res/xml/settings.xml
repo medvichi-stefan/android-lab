@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/android"
+    tools:ignore="NamespaceTypo">
+
+    <SwitchPreference
+        app:id="@+id/settings_notification"
+        app:key="notificationsCheckbox"
+        app:title="Enable message notifications"
+        app:defaultValue="false"
+        app:onClick="test"/>
+
+</PreferenceScreen>
