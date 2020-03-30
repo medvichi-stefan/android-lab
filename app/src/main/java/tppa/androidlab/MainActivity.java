@@ -66,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.main_menu_save:
                 saveInternalStorage();
+            case R.id.main_menu_sensors:
+                showSensors();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -157,5 +159,10 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
 
         }
+    }
+
+    protected void showSensors() {
+        Intent intent = new Intent(this, SensorActivity.class);
+        startActivity(intent);
     }
 }
