@@ -10,4 +10,6 @@
         android:title="@string/main_menu_save" />
     <item android:id="@+id/main_menu_sensors"
         android:title="@string/main_menu_sensors" />
+    <item android:id="@+id/main_menu_camera"
+        android:title="@string/main_menu_camera" />
 </menu>

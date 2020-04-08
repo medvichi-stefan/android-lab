@@ -69,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.main_menu_sensors:
                 showSensors();
                 return true;
+            case R.id.main_menu_camera:
+                showCamera();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -163,6 +166,11 @@ public class MainActivity extends AppCompatActivity {
 
     protected void showSensors() {
         Intent intent = new Intent(this, SensorActivity.class);
+        startActivity(intent);
+    }
+
+    protected void showCamera() {
+        Intent intent = new Intent(this, CameraActivity.class);
         startActivity(intent);
     }
 }
